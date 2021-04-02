@@ -27,6 +27,27 @@ document.querySelector("#faster").addEventListener("click", function() {
 	console.log("Speed is " + video.playbackRate);
 });
 
+document.querySelector("#skip").addEventListener("click", function() {
+	if (video.currentTime + 15 < video.duration){
+		video.currentTime = video.currentTime + 15;
+		console.log(video.currentTime);
+	} else {
+		console.log("Going back to the beginning");
+		video.currentTime = 0;
+		console.log(video.currentTime);
+	}
+});
+
+document.querySelector("#mute").addEventListener("click", function() {
+	if (video.muted == false){
+		video.muted = true;
+		document.querySelector("#mute").innerHTML = "Unmute";
+	} else {
+		video.muted = false;
+		document.querySelector("#mute").innerHTML = "Mute";
+	}
+});
+
 document.querySelector("#slider").addEventListener("change", function() {
 	console.log(this.value / 100);
 	video.volume = this.value / 100;
@@ -41,48 +62,10 @@ document.querySelector("#orig").addEventListener("click", function() {
 	video.className = "video";
 });
 
-document.querySelector("#skip").addEventListener("click", function() {
-	if (video.currentTime + 15 < video.duration){
-		console.log("Original location is " + video.currentTime);
-		video.currentTime = video.currentTime + 15;
-		console.log("New location is " + video.currentTime);
-	} else {
-		console.log("Going back to beginning");
-		video.currentTime = 0;
-		console.log("New location is" + video.currentTime);
-	}
-});
 
-document.querySelector("#mute").addEventListener("click", function() {
-	if (video.muted == false){
-		video.muted = true;
-		document.querySelector("#mute").innerHTML = "Unmute";
-	} else {
-		video.muted = false;
-		document.querySelector("#mute").innerHTML = "Mute";
-	}
-});
-document.querySelector("#skip").addEventListener("click", function() {
-	if (video.currentTime + 15 < video.duration){
-		console.log("Original location is " + video.currentTime);
-		video.currentTime = video.currentTime + 15;
-		console.log("New location is " + video.currentTime);
-	} else {
-		console.log("Going back to the beginning");
-		video.currentTime = 0;
-		console.log("New location is " + video.currentTime);
-	}
-});
 
-document.querySelector("#mute").addEventListener("click", function() {
-	if (video.muted == false){
-		video.muted = true;
-		document.querySelector("#mute").innerHTML = "Unmute";
-	} else {
-		video.muted = false;
-		document.querySelector("#mute").innerHTML = "Mute";
-	}
-});
+
+
 
 
 
