@@ -19,12 +19,12 @@ document.querySelector("#pause").addEventListener("click", function() {
 
 document.querySelector("#slower").addEventListener("click", function() {
 	video.playbackRate = video.playbackRate * 0.95;
-	console.log("New speed is " + video.playbackRate);
+	console.log("Speed is " + video.playbackRate);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
 	video.playbackRate = video.playbackRate / 0.95;
-	console.log("New speed is " + video.playbackRate);
+	console.log("Speed is " + video.playbackRate);
 });
 
 document.querySelector("#slider").addEventListener("change", function() {
@@ -39,6 +39,39 @@ document.querySelector("#vintage").addEventListener("click", function() {
 
 document.querySelector("#orig").addEventListener("click", function() {
 	video.className = "video";
+});
+
+document.querySelector("#skip").addEventListener("click", function() {
+	if (video.currentTime + 15 < video.duration){
+		console.log("Original location is " + video.currentTime);
+		video.currentTime = video.currentTime + 15;
+		console.log("New location is " + video.currentTime);
+	} else {
+		console.log("Going back to beginning");
+		video.currentTime = 0;
+		console.log("New location is" + video.currentTime);
+	}
+});
+
+document.querySelector("#mute").addEventListener("click", function() {
+	if (video.muted == false){
+		video.muted = true;
+		document.querySelector("#mute").innerHTML = "Unmute";
+	} else {
+		video.muted = false;
+		document.querySelector("#mute").innerHTML = "Mute";
+	}
+});
+document.querySelector("#skip").addEventListener("click", function() {
+	if (video.currentTime + 15 < video.duration){
+		console.log("Original location is " + video.currentTime);
+		video.currentTime = video.currentTime + 15;
+		console.log("New location is " + video.currentTime);
+	} else {
+		console.log("Going back to the beginning");
+		video.currentTime = 0;
+		console.log("New location is " + video.currentTime);
+	}
 });
 
 
